@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    var trap = function (height) {
+      if (height.length <= 2) {
+        return 0;
+      }
+      let maxIndex = 0, maxValue = 0;
+      let res = 0;
+      for (let i = 0; i < height.length; i++) {
+        if (height[i] >= maxValue) {
+          maxValue = height[i];
+          maxIndex = i;
+        }
+      }
+      let curRoot = height[0];
+      for (let i = 0; i < maxIndex; i++) {
+        if (curRoot < height[i]) {
+          curRoot = height[i]
+        } else {
+          res += curRoot - height[i]
+        }
+      }
+      let curRoot2 = height[height.length - 1];
+      for (let i = height.length - 1; i > maxIndex; i--) {
+        if (curRoot2 < height[i]) {
+          curRoot2 = height[i];
+        } else {
+          res += curRoot2 - height[i];
+        }
+      }
+
+      return res;
+    };
+    trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])
+  </script>
+</body>
+
+</html>

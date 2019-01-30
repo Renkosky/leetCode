@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var maxProfit = function (prices) {
+      // var reprices = prices.sort((a, b) => b - a)
+      // if (prices.join('') === reprices.join('')) return 0
+      // var profitList = []
+      // for (let i = 0; i < prices.length - 1; i++) {
+      //   profitList.push(prices[i + 1] - prices[i])
+      // }
+      // var dp = []
+      // dp = [profitList[0]]
+      // for (let i = 1; i < profitList.length; i++) {
+      //   dp[i] = Math.max(profitList[i], profitList[i] + dp[i - 1])
+
+      // }
+      // return dp.sort((a, b) => a - b)[dp.length - 1]
+      var profitList = []
+      for (let i = 0; i < prices.length - 1; i++) {
+        profitList.push(prices[i + 1] - prices[i])
+      }
+      var dp = []
+      dp = [profitList[0]]
+      for (let i = 1; i < profitList.length; i++) {
+        dp[i] = Math.max(profitList[i], profitList[i] + dp[i - 1])
+
+      }
+      return dp.sort((a, b) => a - b)[dp.length - 1] > 0 ? dp.sort((a, b) => a - b)[dp.length - 1] : 0
+    };
+    maxProfit([7, 1, 5, 3, 6, 4])
+  </script>
+</body>
+
+</html>

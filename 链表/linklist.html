@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>linklsit</title>
+</head>
+
+<body>
+  <script>
+    function linkedList() {
+      let Node = function name(val) {
+        this.val = val
+        this.next = null
+      }
+      let length = 0
+      this.head = null
+      //尾部添加节点
+      this.append = function (val) {
+        let node = new Node(val)
+        if (this.head == null) {
+          this.head = node
+        } else {
+          current = this.head
+          while (current.next) {
+            current = current.next
+          }
+          current.next = node
+        }
+        length++
+      }
+
+      this.remove = function (pos) {
+        let current = this.head
+        let previous = this.head
+        let index = 0
+        if (pos === 0) {
+          head = current.next
+        } else {
+          while (index++ < pos) {
+            previous = current
+            current = current.next
+          }
+          previous.next = current.next
+        }
+        length--
+      }
+
+      this.insert = function (pos, val) {
+        let current = this.head
+        let index = 0
+        let node = new Node(val)
+        if (pos === 0) {
+          node.next = head
+        } else {
+          while (index++ < pos && current.next !== null) {
+            previous = current
+            current = current.next
+          }
+          node.next = current.next
+          previous.next = node
+        }
+        length++
+      }
+
+    }
+    let link = new linkedList()
+    link.append(1)
+    link.append(2)
+    link.append(4)
+    link.append(8)
+    link.remove(2)
+    link.insert(2, 7)
+    console.log(link.head);
+
+  </script>
+</body>
+
+</html>

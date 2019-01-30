@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    var wordBreak = function (s, wordDict) {
+
+      if (s == null || s.length == 0)
+        return true;
+      let res = [];
+      res[0] = true;
+      for (let i = 0; i < s.length; i++) {
+        let str = s.substring(0, i + 1);
+        for (let j = 0; j <= i; j++) {
+          if (res[j] && wordDict.includes(str.toString())) {
+            res[i + 1] = true;
+            break;
+          }
+          str = str.slice(1);
+        }
+      }
+      return res[s.length] ? res[s.length] : false;
+
+    };
+    s = "leetcode", wordDict = ["leet", "code"]
+    wordBreak(s, wordDict)
+  </script>
+</body>
+
+</html>

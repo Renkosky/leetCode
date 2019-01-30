@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function TreeNode(val) {
+      this.val = val;
+      this.left = this.right = null;
+    }
+    var root = new TreeNode(1)
+    var left = new TreeNode(2)
+    var rigth = new TreeNode(3)
+    root.left = left
+    root.right = rigth
+
+
+    var sumNumbers = function (root) {
+
+      var res = 0
+      var temp = 0
+      depthTraversal(root, res, temp)
+
+      function depthTraversal(root, res, temp) {
+        if (root === null) return 0
+        if (root.left == null && root.right == null) {
+          res += temp + root.val
+        }
+
+        depthTraversal(root.left, res, temp * 10 + root.val);
+        depthTraversal(root.right, res, temp * 10 + root.val);
+        temp = temp / 10
+      }
+      console.log(res);
+      return res
+    };
+    sumNumbers(root)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function doublyLinkedList() {
+      let Node = function (val) {
+        this.val = val
+        this.next = null
+        this.prev = null
+      }
+
+      let length = 0
+      let head = null
+      let tail = null
+      //插入：
+      /**
+       * 插入头部 
+       * 1，node.next->current(原来的头部)
+       * 2， current.prev->node
+       * 
+       * 插入尾部
+       * 1，此时current引用最后一个元素。node.prev = current
+       * 2, current.next = node
+       * 3, 更新tail(对尾节点的引用)
+       * 
+       * 插入中间
+       *   current为当前遍历到的元素，previous
+       * 1, node.next = current
+       * 2, previous.next = node
+       * 3, current.prev = node
+       * 4, current.next = previous
+      */
+    }    
+  </script>
+</body>
+
+</html>

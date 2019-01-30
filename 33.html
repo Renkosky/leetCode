@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var search = function (nums, target) {
+      let left = 0
+      let right = nums.length
+      if (nums.length <= 0) return -1
+      while (left <= right) {
+        let mid = Math.floor(left + right / 2)
+        if (nums[mid] === target) {
+          return mid
+        }
+        if (nums[mid] >= nums[left]) {
+          if (A[left] <= target && target < A[mid]) {
+            rght = mid - 1;
+          }
+          else {
+            left = mid + 1;
+          }
+        }
+        else {
+          if (A[mid] < target && target <= A[mid]) {
+            left = mid + 1;
+          }
+          else {
+            high = mid - 1;
+          }
+        }
+      }
+      return -1
+    };
+    search([4, 5, 6, 7, 0, 1, 2], 0)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    /**
+ * Problem: https://leetcode.com/problems/restore-ip-addresses/description/
+ */
+    /**
+     * @param {string} s
+     * @return {string[]}
+     */
+    var restoreIpAddresses = function (s) {
+      var res = []
+      for (let a = 1; a < 4; ++a)
+        for (let b = 1; b < 4; ++b)
+          for (let c = 1; c < 4; ++c)
+            for (let d = 1; d < 4; ++d)
+              if (a + b + c + d == s.length) {
+                let A = parseInt(s.slice(0, a))
+                let B = parseInt(s.slice(a, b + a));
+                let C = parseInt(s.slice(a + b, c + a + b));
+                let D = parseInt(s.slice(a + b + c, d + a + b + c));
+                if (A <= 255 && B <= 255 && C <= 255 && D <= 255) {
+                  let t = A.toString() + "." + B.toString() + "." + C.toString() + "." + D.toString();
+                  if (t.length == s.length + 3) res.push(t);
+                }
+              }
+      return res;
+    }
+    restoreIpAddresses('25525511135')
+  </script>
+</body>
+
+</html>

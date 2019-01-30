@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let c = []
+    var longestCommonPrefix = function (strs) {
+      if (strs === null || strs.length === 0) return "";
+      var len = strs.reduce(function (num, str) {
+        return Math.min(num, str.length);
+      }, Infinity);
+      if (len === 0) return "";
+      for (var i = 0; i < len; i++) {
+        var char = strs[0].charAt(i);
+
+        var char2 = strs[1].charAt(i);
+        if (i == 0 && char != char2) {
+          c.push(strs[0].substring(0, i + 1))
+          return
+        }
+        if ((i !== 0 && char != char2)) {
+          c.push(strs[0].substring(0, i + 1))
+          c.push(strs[1].substring(0, i + 1))
+          return
+
+        }
+      }
+      return c.push(strs[0].substring(0, len));
+    };
+    arr2 = [['byte', 'toutiaohao'], ['toutiaohao', 'toutiaoapp'], ['toutiaoapp', 'iesaweme'], ['iesaweme', 'iestikok']]
+    for (var i = 0; i < arr2.length; i++) {
+      longestCommonPrefix(arr2[i])
+      if (c[c.length - 1].length > 1) {
+        i++
+      }
+    }
+    // longestCommonPrefix(['toutiaohao', 'toutiaoapp'])
+    [
+      ['p', 'a ', 'b', 'h', 'm']
+      ['f', 'h', 'e ', 'c', 'p']
+      ['o', 'i', ' l', 'l', ' h']
+      ['b ', 'g', ' h', ' o', 'n']
+      ['h', ' x', ' c', ' m ', 'l']
+    ] 
+  </script>
+</body>
+
+</html>
